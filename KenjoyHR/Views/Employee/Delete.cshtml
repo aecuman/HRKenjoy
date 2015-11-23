@@ -1,0 +1,400 @@
+﻿@model KenjoyHR.Models.ED.HR
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Photo
+        </dt>
+        <dd>
+            <img width="180" height="180" src="@Url.Content("~/Images/profile/" + System.IO.Path.GetFileName(Model.image))" />
+        </dd>
+        <dt>
+           First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            Middle Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MName)
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+           Current Residence
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_residence)
+        </dd>
+
+        <dt>
+           Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+           Mobile Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_number)
+        </dd>
+
+        <dt>
+           Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Distance to Work
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.d_work)
+        </dd>
+
+        <dt>
+            Rental Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.r_status)
+        </dd>
+
+        <dt>
+           Marital Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_status)
+        </dd>
+
+        <dt>
+            Number of Kids
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_kids)
+        </dd>
+
+        <dt>
+           Commencement Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.s_date)
+        </dd>
+
+        <dt>
+           Branch
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.branch)
+        </dd>
+
+        <dt>
+            Job Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+           Salary
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+
+        <dt>
+            Official Day Off
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.off_day)
+        </dd>
+
+        <dt>
+           University Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_name)
+        </dd>
+
+        <dt>
+           University Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_address)
+        </dd>
+
+        <dt>
+           Study Period
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_years)
+        </dd>
+
+        <dt>
+            Graduated or not
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_grad)
+        </dd>
+
+        <dt>
+           Degree Obtained
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.degree)
+        </dd>
+
+        <dt>
+            Vocational School
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.v_name)
+        </dd>
+
+        <dt>
+           Period of Study
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.v_years)
+        </dd>
+
+        <dt>
+            Training Obtained
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.v_training)
+        </dd>
+
+        <dt>
+           Alevel Scool
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sa_name)
+        </dd>
+
+        <dt>
+           Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sa_address)
+        </dd>
+
+        <dt>
+            Years Studied
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sa_years)
+        </dd>
+
+        <dt>
+           O'Level School
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_name)
+        </dd>
+
+        <dt>
+           Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_address)
+        </dd>
+
+        <dt>
+            Years of Study
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_years)
+        </dd>
+
+        <dt>
+           Primary School
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_name)
+        </dd>
+
+        <dt>
+           Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_address)
+        </dd>
+
+        <dt>
+            National ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nid_number)
+        </dd>
+
+        <dt>
+           NSSF Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nssf)
+        </dd>
+
+        <dt>
+           Drivers' Licence
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dr_li)
+        </dd>
+
+        <dt>
+           Expiry Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dr_li_exp)
+        </dd>
+
+        <dt>
+           Previous Job
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pre_job)
+        </dd>
+
+        <dt>
+            Previous Position
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position)
+        </dd>
+
+        <dt>
+            Time Spent There
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+        <dt>
+            Previous Employer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_name)
+        </dd>
+
+        <dt>
+            Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_address)
+        </dd>
+
+        <dt>
+           Supervisor
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supervisor)
+        </dd>
+
+        <dt>
+          Last Day/Month
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_day)
+        </dd>
+
+        <dt>
+            Emergency Contact
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emer_name)
+        </dd>
+
+        <dt>
+           Phone Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emer_number)
+        </dd>
+     
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,1153 @@
+﻿@model KenjoyHR.Models.ED.HR
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PartialEmp.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Details
+        <small>@Html.DisplayFor(model => model.FName) @Html.DisplayFor(model => model.LName)</small>
+    </h1>
+    
+</section>
+
+<!-- Main content -->
+<section class="content" data-ng-app="crudModule">    
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>Status</h3>
+                    <table data-ng-controller="CRUD_OperController">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th><b>Current Status</b></th>
+                            
+
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Status | filter:{statnameid:@Model.Id}|limitTo:1" >
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+                                <td hidden="hidden"><span>{{stud.statnameid}}</span></td>
+                                <td><span>{{stud.stat}}</span></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+               
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+
+                    <h3>Absent</h3>
+                    <table data-ng-controller="CRUD_OperControllerabs">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Reason</th>
+                            <th></th>
+                            <th>Date</th>
+                        
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Absent|filter:{absentnameid:@Model.Id}|limitTo:1">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+
+                                <td><span>{{stud.absentreason}}</span></td>
+                               <td></td>
+                                <td><span>{{stud.absentnowtime|date:'dd/MM/yyyy'}}</span></td>
+                               
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>Cautions</h3>
+                    <table data-ng-controller="CRUD_OperControllercaution">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Most Recent Caution</th>
+                         
+                            <th></th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Caution| filter:{cautionnameid:@Model.Id}|limitTo:1">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td hidden="hidden"><span>{{stud.cautionnameid}}</span></td>
+                                
+
+                                <td><span>{{stud.cautionnowdate|date:'dd/MM/yyyy'}}</span></td>
+                              
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+              
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>Loans</h3>
+                    <table data-ng-controller="CRUD_OperControllerloan">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Amount</th>
+                           
+                            <th>Reason</th>
+                            <th></th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Loan|filter:{loadnameid:@Model.Id}|limitTo:1">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td hidden="hidden"><span>{{stud.loadnameid}}</span></td>
+                                <td><span>{{stud.loanamount | currency:"":0}}</span></td>
+                            
+                                <td><span>{{stud.loanreaason}}</span></td>
+                             
+                               <td></td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+               
+            </div>
+        </div><!-- ./col -->
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+
+                    <h3>Performance</h3>
+                    <table data-ng-controller="CRUD_OperControllerperfom">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Grading</th>
+                            <th>Month</th>
+                            <th></th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Performance| filter:{nameid:@Model.Id}|limitTo:1">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td hidden="hidden"><span>{{stud.nameid}}</span></td>
+                                <td><span>{{stud.grading}}</span></td>
+                                
+                                <td><span>{{stud.Pdatenow|date:'MM/yyyy'}}</span></td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+               
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+
+                    <h3>Loss</h3>
+                    <table data-ng-controller="CRUD_OperControllerloss">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Loss Type</th>
+                            <th>Date</th>
+                            <th></th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Loss| filter:{lossnameid:@Model.Id}|limitTo:1">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td hidden="hidden"><span>{{stud.lossnameid}}</span></td>
+                                <td><span>{{stud.Type}}</span></td>
+                               
+                                <td><span>{{stud.lossdatenow|date:'dd/MM/yyyy'}}</span></td>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+             
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+
+                    <h3>Promotion</h3>
+                    <table data-ng-controller="CRUD_OperControllerpromo">
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Current Position</th>
+                          
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Promotion| filter:{promonameid:@Model.Id}|limitTo:1">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td hidden="hidden"><span>{{stud.promonameid}}</span></td>
+                                <td><span>{{stud.promoto}}</span></td>
+                               
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+              
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+           
+        </div><!-- ./col -->
+    </div><!-- /.row -->
+    <!-- Main row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                
+                
+
+
+                       <div class="box box-info collapsed-box">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">File Groups</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <div class="btn-group">
+                                        <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="nav-tabs-custom">
+                                    <!-- Tabs within a box -->
+                                    <ul class="tabs center">
+                                        <li><a href="#tabr1">Status</a></li>
+                                        <li><a href="#tabr2">Absent</a></li>
+                                        <li><a href="#tabr3">Cautions</a></li>
+                                        <li><a href="#tabr4">Loans</a></li>
+                                        <li><a href="#tabr5">Performance</a></li>
+                                        <li><a href="#tabr6">Loss</a></li>
+                                        <li><a href="#tabr7">Promotions</a></li>
+
+                                    </ul>
+                                    <div id="tabr1" class="tab-content" data-ng-controller="CRUD_OperController" show-filter="true">
+                                        
+                                        
+                                            <div class="col-md-7">
+                                                <div style="color: red;">{{Message}}</div>
+                                                <div class="table-responsive">
+                                                    <div ng-show="filteredItems > 0">
+                                                        <table class="table no-margin">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th>Status<a ng-click="orderByField='stat';"><i class="fa fa-angle-down"></i></a></th>
+                                                                    <th>Day<a ng-click="orderByField='statenow';"><i class="fa-angle-down"></i></a></th>
+                                                                   
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody data-ng-repeat="stud in Status | filter:{statnameid:@Model.Id}| orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems ">
+                                                                <tr>
+                                                                    <td hidden="hidden"><a href="pages/examples/invoice.html">{{stud.statnameid}}</a></td>
+                                                                    <td>{{stud.stat}}</td>
+                                                                    <td><span class="label label-primary">{{stud.statenow|date:'dd/MM/yyyy'}}</span></td>
+@if (User.IsInRole("Data Entrant") || User.IsInRole("Admin"))
+{
+                                                                    <td>
+                                                                        <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                                    </td>
+}
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                       
+                                                    </div>
+                                                    <div ng-show="filteredItems > 0">
+                                                        <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                                    </div>
+                                                    Select Number to show items Per Page <select ng-model="PerPageItems">
+                                                        <option value="5">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="20">20</option>
+                                                    </select>
+                                                </div><!-- /.table-responsive -->
+                                       
+                                                <div class="box-footer clearfix" hidden="hidden">
+                                                    <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+                                                    <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+                                                </div><!-- /.box-footer -->
+
+
+                                            </div><!-- /.box-body -->
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                            <div class="col-md-4">
+                                                <table style="border-left: solid 1px grey;">
+                                                    <tr hidden="hidden">
+
+                                                        <td>
+                                                            <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr hidden="hidden">
+
+                                                        <td>
+                                                            <input type="text" id="statnameid" data-ng-model="statnameid" ng-init="statnameid='@Model.Id'" value="@Model.Id" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <span>Status</span>
+                                                        </td>
+                                                        <td>
+                                                            <select  class="form-control" required data-ng-model="stat">
+                                                                <option value="Left">Left</option>
+                                                                <option value="leave">Leave</option>
+                                                                <option value="Leave(sick)">Leave(sick) </option>
+                                                                <option value="Employed">Employed</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <span>Day</span>
+                                                        </td>
+                                                        <td>
+                                                            <input type="date" id="statenow" required data-ng-model="statenow" />
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+
+                                                        <td>
+                                                            <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                            <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                              
+                                            </div>
+}
+
+                                        </div>
+                                
+                                <div id="tabr2" class="tab-content" data-ng-controller="CRUD_OperControllerabs">
+                                    <div class="col-md-7">
+                                        <div style="color: red;">{{Message}}</div>
+                                        <div class="table-responsive">
+                                            <div ng-show="filteredItems > 0">
+                                                <table class="table no-margin">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Reason</th>
+                                                            <th>Remarks</th>
+                                                            <th>Date</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody data-ng-repeat="stud in Absent|filter:{absentnameid:@Model.Id}| orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems ">
+                                                        <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+
+                                                            <td><a href="pages/examples/invoice.html">{{stud.absentreason}}</a></td>
+                                                            <td>{{stud.absentremarks}}</td>
+                                                            <td><span class="label label-success">{{stud.absentnowtime|date:'dd/MM/yyyy'}}</span></td>
+                                                           @if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+                                                           {
+                                                             <td>
+                                                                <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                            </td>
+
+                                                            <td>
+                                                                <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                            </td>
+                                                           }
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                                <div ng-show="filteredItems > 0">
+                                                    <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                                </div>
+                                                Select Number to show items Per Page <select ng-model="PerPageItems">
+                                                    <option value="5">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                </select>
+                                            </div>
+                                    </div>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                    <div class="col-md-4">
+                                        <table style="border-left: solid 1px grey;">
+                                            <tr hidden="hidden">
+                                                
+                                                <td>
+                                                    <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                                </td>
+                                            </tr>
+                                            <tr hidden="hidden">
+                                                <td>
+                                                    <input type="text" id="absentnameid" data-ng-model="absentnameid" ng-init="absentnameid='@Model.Id'" value="@Model.Id" />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Reason</span>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" required data-ng-model="absentreason">
+                                                        <option value="self absenteeism">self absenteeism</option>
+                                                        <option value="forced">forced</option>
+                                                        <option value="burial">burial</option>
+                                                        <option value="sickness">sickness</option>
+                                                        <option value="Unknown">Unknown</option>                                                        
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Remarks</span>
+                                                </td>
+                                                <td>
+                                                    <textarea placeholder="Type Remark " id="absentremarks" required data-ng-model="absentremarks"></textarea>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Day</span>
+                                                </td>
+                                                <td>
+                                                    <input type="date"absentnowtime" data-ng-model="absentnowtime" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                    <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+
+
+                                    </div>
+}
+                                </div>
+
+                                <div id="tabr3" class="tab-content" data-ng-controller="CRUD_OperControllercaution">
+                                    <div class="col-md-7">
+                                        <div style="color: red;">{{Message}}</div>
+                                        <div class="table-responsive">
+                                            <div ng-show="filteredItems > 0">
+                                                <table class="table no-margin">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Caution</th>
+                                                            <th>Date</th>
+                                                            <th></th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody data-ng-repeat="stud in Caution|filter:{cautionnameid:@Model.Id }| orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems">
+                                                        <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                                            <td hidden="hidden"><span>{{stud.cautionnameid}}</span></td>
+                                                            <td><span>{{stud.cautionremarks}}</span></td>
+
+                                                            <td><span>{{stud.cautionnowdate|date:'dd/MM/yyyy'}}</span></td>
+                                                            @if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+                                                            {
+                                                            <td>
+                                                                <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                            </td>
+
+                                                            <td>
+                                                                <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                            </td>
+                                                            }
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div ng-show="filteredItems > 0">
+                                                <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                            </div>
+                                            Select Number to show items Per Page <select ng-model="PerPageItems">
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                        </div>
+                                    </div>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                    <div class="col-md-4">
+                                        <table style="border-left: solid 1px grey;">
+                                            <tr hidden="hidden">
+                                               
+                                                <td>
+                                                    <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                                </td>
+                                            </tr>
+                                            <tr hidden="hidden">                                              
+                                                <td>
+                                                    <input type="text" id="cautionnameid"  data-ng-model="cautionnameid" ng-init="cautionnameid='@Model.Id'" value="@Model.Id"/>
+                                                </td>
+                                            </tr>                                           
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Remarks</span>
+                                                </td>
+                                                <td>
+                                                    <textarea id="cautionremarks" required data-ng-model="cautionremarks"></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Day</span>
+                                                </td>
+                                                <td>
+                                                    <input type="date" id="cautionnowdate" data-ng-model="cautionnowdate" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+
+                                                <td>
+                                                    <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                    <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+}
+                                </div>
+                                <div id="tabr4" class="tab-content" data-ng-controller="CRUD_OperControllerloan">
+                                    <div class="col-md-7">
+                                        <div style="color: red;">{{Message}}</div>
+                                        <div class="table-responsive">
+                                            <table class="table no-margin" ng-show="filteredItems > 0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Amount</th>
+                                                        <th>Period</th>
+                                                        <th>Reason</th>
+                                                        <th>Remarks</th>
+                                                        <th>Day</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-ng-repeat="stud in Loan|filter:{loadnameid:@Model.Id} | orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems">
+                                                    <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                                        <td hidden="hidden"><span>{{stud.loadnameid}}</span></td>
+                                                        <td><span>{{stud.loanamount|currency:"":0}}</span></td>
+                                                        <td><span>{{stud.loanperiod}}</span></td>
+                                                        <td><span>{{stud.loanreaason}}</span></td>
+                                                        <td><span>{{stud.loanremarks}}</span></td>
+                                                        <td><span>{{stud.loandatenow|date:'dd/MM/yyyy'}}</span></td>
+                                                       @if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+                                                       {
+                                                         <td>
+                                                            <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                        </td>
+
+                                                        <td>
+                                                            <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                        </td>
+
+                                                       }
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div ng-show="filteredItems > 0">
+                                                <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                            </div>
+                                            Select Number to show items Per Page <select ng-model="PerPageItems">
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                        </div>
+                                    </div>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                    <div class="col-md-4">
+                                        <table style="border-left: solid 1px grey;">
+                                            <tr hidden="hidden">
+                                               
+                                                <td>
+                                                    <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                                </td>
+                                            </tr>
+                                            <tr hidden="hidden">
+                                               
+                                                <td>
+                                                    <input type="text" id="loadnameid" data-ng-model="loadnameid" ng-init="loadnameid='@Model.Id'" value="@Model.Id"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Amount</span>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="loanamount" required data-ng-model="loanamount"/>
+
+                                                </td>
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Period</span>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="loanperiod" data-ng-model="loanperiod" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Reason</span>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="loanreaason" data-ng-model="loanreaason" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Remarks</span>
+                                                </td>
+                                                <td>
+                                                    <textarea id ="loanremarks" data-ng-model="loanremarks" ></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Day</span>
+                                                </td>
+                                                <td>
+                                                    <input type="date" id="loandatenow" data-ng-model="loandatenow" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+
+                                                <td>
+                                                    <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                    <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+}
+                                </div>
+                          
+                            <div id="tabr5" class="tab-content" data-ng-controller="CRUD_OperControllerperfom">
+                                <div class="col-md-7">
+                                    <div style="color: red;">{{Message}}</div>
+                                    <div class="table-responsive">
+                                        <table class="table no-margin" ng-show="filteredItems > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Grading</th>
+                                                    <th>Remarks</th>
+                                                    <th>Date</th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody data-ng-repeat="stud in Performance|filter:{nameid:@Model.Id}  | orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems">
+                                                <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                                    <td hidden="hidden"><span>{{stud.nameid}}</span></td>
+                                                    <td><span>{{stud.grading}}</span></td>
+                                                    <td><span>{{stud.Remarks}}</span></td>
+                                                    <td><span>{{stud.Pdatenow|date:'dd/MM/yyyy'}}</span></td>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                                    <td>
+                                                        <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                    </td>
+}
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div ng-show="filteredItems > 0">
+                                            <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                        </div>
+                                        Select Number to show items Per Page <select ng-model="PerPageItems">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                @if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+                                {
+                                <div class="col-md-4">
+                                    <table style="border-left: solid 1px grey;">
+                                        <tr hidden="hidden">
+                                                                                     
+                                            <td>
+                                                <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                            </td>
+                                        </tr>
+                                        <tr hidden="hidden">
+                                           
+                                            <td>
+                                                <input type="text" id="nameid" data-ng-model="nameid" ng-init="nameid='@Model.Id'" value="@Model.Id" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span>Grading</span>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="grading" required data-ng-model="grading">
+                                                    <option value="Improved">Improved</option>
+                                                    <option value="consistent">consistent</option>
+                                                    <option value="inconsistent">inconsistent</option>
+                                                    <option value="declining">declining</option>
+                                                   
+                                                </select>
+                                            </td>
+                                        </tr>                                      
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span>Remarks</span>
+                                            </td>
+                                            <td>
+                                                <textarea id="Remarks" data-ng-model="Remarks"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span>Day</span>
+                                            </td>
+                                            <td>
+                                                <input type="date" id="Pdatenow" data-ng-model="Pdatenow" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+
+                                            <td>
+                                                <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                </div>
+                                }
+                            </div>
+                            <div id="tabr6" class="tab-content" data-ng-controller="CRUD_OperControllerloss">
+                                <div class="col-md-7">
+                                    <div style="color: red;">{{Message}}</div>
+                                    <div class="table-responsive">
+                                        <table class="table no-margin" ng-show="filteredItems > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Remarks</th>
+                                                    <th>Day</th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody data-ng-repeat="stud in Loss|filter:{lossnameid:@Model.Id}  | orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems">>
+                                                <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                                    <td hidden="hidden"><span>{{stud.lossnameid}}</span></td>
+                                                    <td><span>{{stud.Type}}</span></td>
+                                                    <td><span>{{stud.lossremarks}}</span></td>
+                                                    <td><span>{{stud.lossdatenow|date:'dd/MM/yyyy'}}</span></td>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                                    <td>
+                                                        <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                    </td>
+}
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div ng-show="filteredItems > 0">
+                                            <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                        </div>
+                                        Select Number to show items Per Page <select ng-model="PerPageItems">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                        </select>
+                                    </div>
+                                </div>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                <div class="col-md-4">
+                                    <table style="border-left: solid 1px grey;">
+                                        <tr hidden="hidden">
+                                           
+                                            
+                                            <td>
+                                                <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                            </td>
+                                        </tr>
+                                        <tr hidden="hidden">
+                                           
+                                            <td>
+                                                <input type="text" id="lossnameid" data-ng-model="lossnameid" ng-init="lossnameid='@Model.Id'" value="@Model.Id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span>Type</span>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" required data-ng-model="Type">
+                                                    <option value="damaged item">damaged item</option>
+                                                    <option value="expired">expired </option>
+                                                    <option value="cashier loss">cashier loss</option>
+                                                  
+
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span>Remarks</span>
+                                            </td>
+                                            <td>
+                                                <textarea id="lossremarks" data-ng-model="lossremarks"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span>Day</span>
+                                            </td>
+                                            <td>
+                                                <input type="date" id="lossdatenow" data-ng-model="lossdatenow" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+
+                                            <td>
+                                                <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+}
+                            </div>
+                      
+                        <div id="tabr7" class="tab-content" data-ng-controller="CRUD_OperControllerpromo">
+                            <div class="col-md-7">
+                                <div style="color: red;">{{Message}}</div>
+                                <div class="table-responsive">
+                                    <table class="table no-margin" ng-show="filteredItems > 0">
+                                        <thead>
+                                            <tr>
+                                                <th>Promoted To</th>
+                                                <th>From</th>
+                                                <th>Commencement Date</th>
+                                                <th>Insertion Date</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody data-ng-repeat="stud in Promotion|filter:{promonameid:@Model.Id} | orderBy:orderByField | Pagestart:(currentPage-1)*PerPageItems | limitTo:PerPageItems">
+                                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                                <td hidden="hidden"><span>{{stud.promonameid}}</span></td>
+                                                <td><span>{{stud.promoto}}</span></td>
+                                                <td><span>{{stud.promofrom}}</span></td>
+                                                <td><span>{{stud.promotodate|date:'dd/MM/yyyy'}}</span></td>
+                                                <td><span>{{stud.promodatenow|date:'dd/MM/yyyy'}}</span></td>
+@if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+{
+                                                <td>
+                                                    <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                                </td>
+
+                                                <td>
+                                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                                </td>
+}
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div ng-show="filteredItems > 0">
+                                        <pagination page="currentPage" total-items="filteredItems" ng-model="currentPage" items-per-page="PerPageItems"></pagination>
+                                    </div>
+                                    Select Number to show items Per Page <select ng-model="PerPageItems">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                            </div>       
+                            @if (User.IsInRole("Data Entrant") && User.IsInRole("Admin"))
+                            {
+                        <div class="col-md-4">
+                            <table style="border-left: solid 1px grey;">
+                                <tr hidden="hidden">
+                                    
+                                  
+                                    <td>
+                                        <input type="text" id="Id" readonly="readonly" data-ng-model="Id" />
+                                    </td>
+                                </tr>
+                                <tr hidden="hidden">
+                                   
+                                    <td>
+                                        <input type="text" id="promonameid" data-ng-model="promonameid" ng-init="promonameid='@Model.Id'" value="@Model.Id" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <span>From</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="promofrom" data-ng-model="promofrom" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <span>To</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="promoto" data-ng-model="promoto" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <span>Promotion Date</span>
+                                    </td>
+                                    <td>
+                                        <input type="date" id="promotodate" data-ng-model="promotodate" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <span>Day</span>
+                                    </td>
+                                    <td>
+                                        <input type="date" id="promodatenow" data-ng-model="promodatenow" />
+                                    </td>
+                                </tr>
+                               
+                               
+                               
+                                <tr>
+                                    <td></td>
+
+                                      <td>
+                                                            <input type="button" id="save" value="Save" data-ng-click="save()" class="btn btn-sm btn-info btn-flat pull-left" />
+
+                                                            <input type="button" id="Clear" value="Clear" data-ng-click="clear()" class="btn btn-sm btn-default btn-flat pull-right" />
+                                                        </td>
+                                </tr>
+                            </table>
+                        </div>
+                            }
+
+                    </div>
+                </div>
+                        </div>
+
+           </div>
+                      
+                    </div>
+                </div>
+        
+        </div>
+  
+        <div>
+
+            <hr />
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-2">
+                       
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+</section>
+    <p>
+       
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/_statusAjs/statModule.js"></script>
+<script src="~/Scripts/_absentAjs/absService.js"></script>
+<script src="~/Scripts/_absentAjs/absController.js"></script>
+<script src="~/Scripts/_statusAjs/statService.js"></script>
+<script src="~/Scripts/_statusAjs/statController.js"></script>
+<script src="~/Scripts/_cautionAjs/cautionService.js"></script>
+<script src="~/Scripts/_cautionAjs/cautionController.js"></script>
+<script src="~/Scripts/_loansAjs/loanService.js"></script>
+<script src="~/Scripts/_loansAjs/loanController.js"></script>
+<script src="~/Scripts/_lossesAjs/LossService.js"></script>
+<script src="~/Scripts/_lossesAjs/lossController.js"></script>
+<script src="~/Scripts/_performanceAjs/perfomService.js"></script>
+<script src="~/Scripts/_performanceAjs/perfomController.js"></script>
+<script src="~/Scripts/_promotionsAjs/promoService.js"></script>
+<script src="~/Scripts/_promotionsAjs/promoController.js"></script>
+<script src="~/Scripts/ui-bootstrap-tpls-0.10.0.min.js"></script>

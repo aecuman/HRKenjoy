@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body class="skin-red sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <a href="#" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>S</b>DB</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Staff DB</b></span>
+                </a>
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Employee List", "Index", "Employee")</li>
+                        <li>@Html.ActionLink("File Status", "DetailsDash", new { id = Model.Id })</li>
+                        <li>@Html.ActionLink("Bio Data", "Details", new { id = Model.Id }) </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/Images/Kenlogo.png" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        <p>@User.Identity.Name</p>
+                        <!-- Status -->
+                        <a href="#"><i class="fa fa-circle text-success"></i>@User.Identity.IsAuthenticated</a>
+                    </div>
+                </div>
+                <!-- search form (Optional) -->
+                <form action="#" method="get" class="sidebar-form"></form>
+                <!-- /.search form -->
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu">
+                    <li class="header">Home</li>
+                    <!-- Optionally, you can add icons to the links -->
+                    <li><a href="/Employee/Create"><i class='fa fa-link'></i> <span>Add New Employee</span></a></li>
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-link'></i> <span>Employee Lists</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li>@Html.ActionLink("StatusList", "Index", "Employee")</li>
+                            <li>@Html.ActionLink("BioDataList", "Index_bio", "Employee")</li>
+                        </ul>
+                    </li>
+                    <img width="150" height="150" src="@Url.Content("~/Images/profile/" + System.IO.Path.GetFileName(Model.image))" />
+                </ul><!-- /.sidebar-menu -->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <div class="content-wrapper">
+            @RenderBody()
+            <hr />
+
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+﻿@{
+    ViewBag.Title = "Log";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+
+
+    <html data-ng-app="crudModule">
+    <body>
+        <table id="tblContainer" data-ng-controller="CRUD_OperController" class="table">
+
+            <tr>
+                <td>
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>
+                            <th>Status</th>
+                            <th>Date</th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Status">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.statnameid}}</span></td>
+                                <td><span>{{stud.stat}}</span></td>
+                                <td><span>{{stud.statenow|date:'MM/dd/yyyy'}}</span></td>
+                                <td>
+                                    <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                                </td>
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+               
+
+        </table>
+
+        <table id="tblContainer2" data-ng-controller="CRUD_OperControllerabs" class="table">
+            <tr>
+                <td>
+
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>
+                            <th>Reason</th>
+                            <th>Remark</th>
+                            <th>Day</th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Absent">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.absentnameid}}</span></td>
+                                <td><span>{{stud.absentreason}}</span></td>
+                                <td><span>{{stud.absentremarks}}</span></td>
+                                <td><span>{{stud.absentnowtime|date:'MM/dd/yyyy'}}</span></td>                            
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table id="tblContainer3" data-ng-controller="CRUD_OperControllercaution" class="table">
+            <tr>
+                <td>
+
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>                           
+                            <th>Remark</th>
+                            <th>Day</th>
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Caution">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.cautionnameid}}</span></td>
+                                <td><span>{{stud.cautionremarks}}</span></td>
+
+                                <td><span>{{stud.cautionnowdate|date:'MM/dd/yyyy'}}</span></td>                               
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table id="tblContainer4" data-ng-controller="CRUD_OperControllerloan" class="table">
+            <tr>
+                <td>
+
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>
+                            <th>Amount</th>
+                            <th>Period</th>
+                            <th>Reason</th>
+                            <th>Remarks</th>
+                            <th>Day</th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Loan">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.loadnameid}}</span></td>
+                                <td><span>{{stud.loanamount}}</span></td>
+                                <td><span>{{stud.loanperiod}}</span></td>
+                                <td><span>{{stud.loanreaason}}</span></td>
+                                <td><span>{{stud.loanremarks}}</span></td>
+                                <td><span>{{stud.loandatenow|date:'MM/dd/yyyy'}}</span></td>
+                              
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table id="tblContainer5" data-ng-controller="CRUD_OperControllerloss" class="table">
+            <tr>
+                <td>
+
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>
+                            <th>Type</th>                            
+                            <th>Remarks</th>
+                            <th>Day</th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Loss">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.lossnameid}}</span></td>
+                                <td><span>{{stud.Type}}</span></td>
+                                <td><span>{{stud.lossremarks}}</span></td>
+                                <td><span>{{stud.lossdatenow|date:'MM/dd/yyyy'}}</span></td>                               
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table id="tblContainer6" data-ng-controller="CRUD_OperControllerperfom" class="table">
+            <tr>
+                <td>
+
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>
+                            <th>Grading</th>
+                            <th>Remarks</th>
+                            <th>Day</th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Performance">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.nameid}}</span></td>
+                                <td><span>{{stud.grading}}</span></td>
+                                <td><span>{{stud.Remarks}}</span></td>
+                                <td><span>{{stud.Pdatenow|date:'MM/dd/yyyy'}}</span></td>
+
+                             
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table id="tblContainer6" data-ng-controller="CRUD_OperControllerpromo" class="table">
+            <tr>
+                <td>
+
+                    <table>
+                        <tr style="height: 30px; background-color: skyblue; color: maroon;">
+                            <th>Nameid</th>
+                            <th>To</th>
+                            <th>From</th>
+                            <th>PromoDate</th>
+
+
+                        </tr>
+                        <tbody data-ng-repeat="stud in Promotion">
+                            <tr style="border-bottom: solid 1px lightgrey; padding: 2px;">
+
+
+                                <td><span>{{stud.promonameid}}</span></td>
+                                <td><span>{{stud.promoto}}</span></td>
+                                <td><span>{{stud.promofrom}}</span></td>
+                                <td><span>{{stud.promotodate|date:'MM/dd/yyyy'}}</span></td>
+                                <td><span>{{stud.promodatenow|date:'MM/dd/yyyy'}}</span></td>
+
+                              
+
+                                <td>
+                                    <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+       
+    </body>
+</html>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/_absentAjs/absModule.js"></script>
+<script src="~/Scripts/_absentAjs/absService.js"></script>
+<script src="~/Scripts/_absentAjs/absController.js"></script>
+<script src="~/Scripts/_statusAjs/statService.js"></script>
+<script src="~/Scripts/_statusAjs/statController.js"></script>
+<script src="~/Scripts/_cautionAjs/cautionService.js"></script>
+<script src="~/Scripts/_cautionAjs/cautionController.js"></script>
+<script src="~/Scripts/_loansAjs/loanService.js"></script>
+<script src="~/Scripts/_loansAjs/loanController.js"></script>
+<script src="~/Scripts/_lossesAjs/LossService.js"></script>
+<script src="~/Scripts/_lossesAjs/lossController.js"></script>
+<script src="~/Scripts/_performanceAjs/perfomService.js"></script>
+<script src="~/Scripts/_performanceAjs/perfomController.js"></script>
+<script src="~/Scripts/_promotionsAjs/promoService.js"></script>
+<script src="~/Scripts/_promotionsAjs/promoController.js"></script>

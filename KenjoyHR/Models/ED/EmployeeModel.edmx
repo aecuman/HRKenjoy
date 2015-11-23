@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmployeesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Absent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="absentnameid" Type="int" Nullable="false" />
+          <Property Name="absentreason" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="absentremarks" Type="nvarchar" MaxLength="150" />
+          <Property Name="absentnowtime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cautionnameid" Type="int" Nullable="false" />
+          <Property Name="cautionremarks" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="cautionnowdate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="MName" Type="nchar" MaxLength="50" />
+          <Property Name="LName" Type="nchar" MaxLength="50" />
+          <Property Name="Gender" Type="nchar" MaxLength="20" />
+          <Property Name="c_residence" Type="nchar" MaxLength="50" />
+          <Property Name="address" Type="nchar" MaxLength="50" />
+          <Property Name="m_number" Type="nchar" MaxLength="50" />
+          <Property Name="email" Type="nchar" MaxLength="50" />
+          <Property Name="d_work" Type="nchar" MaxLength="20" />
+          <Property Name="r_status" Type="nchar" MaxLength="20" />
+          <Property Name="m_status" Type="nchar" MaxLength="20" />
+          <Property Name="n_kids" Type="int" />
+          <Property Name="s_date" Type="nchar" MaxLength="20" />
+          <Property Name="branch" Type="nchar" MaxLength="20" />
+          <Property Name="title" Type="nchar" MaxLength="50" />
+          <Property Name="salary" Type="nchar" MaxLength="20" />
+          <Property Name="off_day" Type="nchar" MaxLength="20" />
+          <Property Name="u_name" Type="nchar" MaxLength="50" />
+          <Property Name="u_address" Type="nchar" MaxLength="50" />
+          <Property Name="u_years" Type="nchar" MaxLength="20" />
+          <Property Name="u_grad" Type="nchar" MaxLength="20" />
+          <Property Name="degree" Type="nchar" MaxLength="100" />
+          <Property Name="v_name" Type="nchar" MaxLength="50" />
+          <Property Name="v_years" Type="nchar" MaxLength="20" />
+          <Property Name="v_training" Type="nchar" MaxLength="50" />
+          <Property Name="sa_name" Type="nchar" MaxLength="50" />
+          <Property Name="sa_address" Type="nchar" MaxLength="50" />
+          <Property Name="sa_years" Type="nchar" MaxLength="20" />
+          <Property Name="so_name" Type="nchar" MaxLength="50" />
+          <Property Name="so_address" Type="nchar" MaxLength="50" />
+          <Property Name="so_years" Type="nchar" MaxLength="20" />
+          <Property Name="p_name" Type="nchar" MaxLength="50" />
+          <Property Name="p_address" Type="nchar" MaxLength="50" />
+          <Property Name="nid_number" Type="nchar" MaxLength="50" />
+          <Property Name="nssf" Type="nchar" MaxLength="50" />
+          <Property Name="dr_li" Type="nchar" MaxLength="50" />
+          <Property Name="dr_li_exp" Type="nchar" MaxLength="50" />
+          <Property Name="pre_job" Type="nchar" MaxLength="50" />
+          <Property Name="position" Type="nchar" MaxLength="50" />
+          <Property Name="time" Type="nchar" MaxLength="20" />
+          <Property Name="emp_name" Type="nchar" MaxLength="50" />
+          <Property Name="emp_address" Type="nchar" MaxLength="50" />
+          <Property Name="supervisor" Type="nchar" MaxLength="50" />
+          <Property Name="last_day" Type="nchar" MaxLength="20" />
+          <Property Name="emer_name" Type="nchar" MaxLength="50" />
+          <Property Name="emer_number" Type="nchar" MaxLength="50" />
+          <Property Name="image" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Loan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loadnameid" Type="int" Nullable="false" />
+          <Property Name="loanamount" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loanperiod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loanreaason" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loanremarks" Type="nvarchar" MaxLength="150" />
+          <Property Name="loandatenow" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Loss">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lossnameid" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lossremarks" Type="nvarchar" MaxLength="150" />
+          <Property Name="lossdatenow" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameid" Type="int" Nullable="false" />
+          <Property Name="grading" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="150" />
+          <Property Name="Pdatenow" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="promonameid" Type="int" Nullable="false" />
+          <Property Name="promoto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="promofrom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="promotodate" Type="date" Nullable="false" />
+          <Property Name="promodatenow" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statnameid" Type="int" Nullable="false" />
+          <Property Name="stat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="statenow" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EmployeesModelStoreContainer">
+          <EntitySet Name="Absent" EntityType="Self.Absent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caution" EntityType="Self.Caution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HR" EntityType="Self.HR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loan" EntityType="Self.Loan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loss" EntityType="Self.Loss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Performance" EntityType="Self.Performance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="c_residence" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="m_number" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="d_work" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="r_status" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="m_status" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="n_kids" Type="Int32" />
+          <Property Name="s_date" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="branch" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="salary" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="off_day" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="u_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="u_address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="u_years" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="u_grad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="degree" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="v_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="v_years" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="v_training" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="sa_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="sa_address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="sa_years" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="so_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="so_address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="so_years" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="p_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="p_address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="nid_number" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="nssf" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="dr_li" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="dr_li_exp" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="pre_job" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="time" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="emp_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="emp_address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="supervisor" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="last_day" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="emer_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="emer_number" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EmployeesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HRs" EntityType="Self.HR" />
+          <EntitySet Name="Absents" EntityType="EmployeesModel.Absent" />
+          <EntitySet Name="Cautions" EntityType="EmployeesModel.Caution" />
+          <EntitySet Name="Loans" EntityType="EmployeesModel.Loan" />
+          <EntitySet Name="Losses" EntityType="EmployeesModel.Loss" />
+          <EntitySet Name="Performances" EntityType="EmployeesModel.Performance" />
+          <EntitySet Name="Promotions" EntityType="EmployeesModel.Promotion" />
+          <EntitySet Name="Status" EntityType="EmployeesModel.Status" />
+        </EntityContainer>
+        <EntityType Name="Absent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="absentnameid" Type="Int32" Nullable="false" />
+          <Property Name="absentreason" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="absentremarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="absentnowtime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Caution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cautionnameid" Type="Int32" Nullable="false" />
+          <Property Name="cautionremarks" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="cautionnowdate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Loan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loadnameid" Type="Int32" Nullable="false" />
+          <Property Name="loanamount" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="loanperiod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loanreaason" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loanremarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="loandatenow" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Loss">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lossnameid" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lossremarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lossdatenow" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameid" Type="Int32" Nullable="false" />
+          <Property Name="grading" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Pdatenow" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="promonameid" Type="Int32" Nullable="false" />
+          <Property Name="promoto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="promofrom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="promotodate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="promodatenow" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statnameid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="stat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="statenow" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeesModelStoreContainer" CdmEntityContainer="EmployeesEntities">
+          <EntitySetMapping Name="HRs">
+            <EntityTypeMapping TypeName="EmployeesModel.HR">
+              <MappingFragment StoreEntitySet="HR">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="c_residence" ColumnName="c_residence" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="m_number" ColumnName="m_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="d_work" ColumnName="d_work" />
+                <ScalarProperty Name="r_status" ColumnName="r_status" />
+                <ScalarProperty Name="m_status" ColumnName="m_status" />
+                <ScalarProperty Name="n_kids" ColumnName="n_kids" />
+                <ScalarProperty Name="s_date" ColumnName="s_date" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="off_day" ColumnName="off_day" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="u_address" ColumnName="u_address" />
+                <ScalarProperty Name="u_years" ColumnName="u_years" />
+                <ScalarProperty Name="u_grad" ColumnName="u_grad" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="v_name" ColumnName="v_name" />
+                <ScalarProperty Name="v_years" ColumnName="v_years" />
+                <ScalarProperty Name="v_training" ColumnName="v_training" />
+                <ScalarProperty Name="sa_name" ColumnName="sa_name" />
+                <ScalarProperty Name="sa_address" ColumnName="sa_address" />
+                <ScalarProperty Name="sa_years" ColumnName="sa_years" />
+                <ScalarProperty Name="so_name" ColumnName="so_name" />
+                <ScalarProperty Name="so_address" ColumnName="so_address" />
+                <ScalarProperty Name="so_years" ColumnName="so_years" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_address" ColumnName="p_address" />
+                <ScalarProperty Name="nid_number" ColumnName="nid_number" />
+                <ScalarProperty Name="nssf" ColumnName="nssf" />
+                <ScalarProperty Name="dr_li" ColumnName="dr_li" />
+                <ScalarProperty Name="dr_li_exp" ColumnName="dr_li_exp" />
+                <ScalarProperty Name="pre_job" ColumnName="pre_job" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+                <ScalarProperty Name="emp_address" ColumnName="emp_address" />
+                <ScalarProperty Name="supervisor" ColumnName="supervisor" />
+                <ScalarProperty Name="last_day" ColumnName="last_day" />
+                <ScalarProperty Name="emer_name" ColumnName="emer_name" />
+                <ScalarProperty Name="emer_number" ColumnName="emer_number" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Absents">
+            <EntityTypeMapping TypeName="EmployeesModel.Absent">
+              <MappingFragment StoreEntitySet="Absent">
+                <ScalarProperty Name="absentnowtime" ColumnName="absentnowtime" />
+                <ScalarProperty Name="absentremarks" ColumnName="absentremarks" />
+                <ScalarProperty Name="absentreason" ColumnName="absentreason" />
+                <ScalarProperty Name="absentnameid" ColumnName="absentnameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cautions">
+            <EntityTypeMapping TypeName="EmployeesModel.Caution">
+              <MappingFragment StoreEntitySet="Caution">
+                <ScalarProperty Name="cautionnowdate" ColumnName="cautionnowdate" />
+                <ScalarProperty Name="cautionremarks" ColumnName="cautionremarks" />
+                <ScalarProperty Name="cautionnameid" ColumnName="cautionnameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loans">
+            <EntityTypeMapping TypeName="EmployeesModel.Loan">
+              <MappingFragment StoreEntitySet="Loan">
+                <ScalarProperty Name="loandatenow" ColumnName="loandatenow" />
+                <ScalarProperty Name="loanremarks" ColumnName="loanremarks" />
+                <ScalarProperty Name="loanreaason" ColumnName="loanreaason" />
+                <ScalarProperty Name="loanperiod" ColumnName="loanperiod" />
+                <ScalarProperty Name="loanamount" ColumnName="loanamount" />
+                <ScalarProperty Name="loadnameid" ColumnName="loadnameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Losses">
+            <EntityTypeMapping TypeName="EmployeesModel.Loss">
+              <MappingFragment StoreEntitySet="Loss">
+                <ScalarProperty Name="lossdatenow" ColumnName="lossdatenow" />
+                <ScalarProperty Name="lossremarks" ColumnName="lossremarks" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="lossnameid" ColumnName="lossnameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Performances">
+            <EntityTypeMapping TypeName="EmployeesModel.Performance">
+              <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="Pdatenow" ColumnName="Pdatenow" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="grading" ColumnName="grading" />
+                <ScalarProperty Name="nameid" ColumnName="nameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="EmployeesModel.Promotion">
+              <MappingFragment StoreEntitySet="Promotion">
+                <ScalarProperty Name="promodatenow" ColumnName="promodatenow" />
+                <ScalarProperty Name="promotodate" ColumnName="promotodate" />
+                <ScalarProperty Name="promofrom" ColumnName="promofrom" />
+                <ScalarProperty Name="promoto" ColumnName="promoto" />
+                <ScalarProperty Name="promonameid" ColumnName="promonameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="EmployeesModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="statenow" ColumnName="statenow" />
+                <ScalarProperty Name="stat" ColumnName="stat" />
+                <ScalarProperty Name="statnameid" ColumnName="statnameid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
