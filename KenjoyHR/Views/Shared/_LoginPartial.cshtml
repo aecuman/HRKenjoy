@@ -13,12 +13,12 @@
                         <!-- The user image in the navbar-->
                        
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">@User.Identity.Name</span>
+                        <span class="hidden-xs">@User.Identity.Name</span><i class="direct-chat-img"></i>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="Images/Kenlogo.png" class="img-circle" alt="User Image" />
+                            <img src="~/Images/Coverphoto.png" class="img-circle" alt="User Image" />
                             <p>
                                 @User.Identity.Name
                                 <small>@Context.User.Identity.AuthenticationType</small>
